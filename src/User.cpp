@@ -1,24 +1,27 @@
-#include <iostream>
 #include "../domain/User.h"
+#include "../include/Utils.h"
+#include <cstring>
 
 User::User()
 {
     id_user = 0;
-    fullName[0] = '/0';
-    email[0] = '/0';
-    password[0] = '/0';
-    number[0] = '/0';
-    address[0] = '/0';
+    password = 0;
+
+    fullName[0] = '\0';
+    email[0] = '\0';
+    number[0] = '\0';
+    address[0] = '\0';
 }
 
 User::User(int id_user, const char *fullName, const char *email, const char *password, const char *number, const char *address)
 {
     this->id_user = id_user;
-    strcpy(this->fullName, fullName);
-    strcpy(this->email, email);
-    strcpy(this->password, password);
-    strcpy(this->number, number);
-    strcpy(this->address, address);
+    unsigned long p = utils::Hash(password);
+    this->password = p;
+    strcpy_s(this->fullName, sizeof(this->fullName), fullName);
+    strcpy_s(this->email, sizeof(this->email), email);
+    strcpy_s(this->number, sizeof(this->number), number);
+    strcpy_s(this->address, sizeof(this->address), address);
 }
 
 int User::getId() const
@@ -38,26 +41,20 @@ const char *User::getEmail() const
 
 void User::setFullName(const char *name)
 {
-    if (name)
-    {
-        strncpy(this->fullName, name, sizeof(this->fullName) - 1);
-        this->fullName[sizeof(this->fullName) - 1] = '\0';
-    }
-    else
-    {
-        this->fullName[0] = '\0';
-    }
+    strncpy_s(this->fullName, sizeof(this->fullName), name);
 }
 
-void User::setEmail(const char *mail)
+void User::setEmail(const char *email)
 {
-    if (mail)
-    {
-        strncpy(this->email, mail, sizeof(this->email) - 1);
-        this->email[sizeof(this->email) - 1] = '\0';
-    }
-    else
-    {
-        this->email[0] = '\0';
-    }
+    strncpy_s(this->email, sizeof(this->email), email);
+}
+
+void User::setPassword(const char *password)
+{
+    this->password = utils::Hash(password);
+}
+
+bool Person::CheckPassword(const char *password) const
+{
+    return this->password == utils::Hash(password);
 }
