@@ -1,5 +1,4 @@
 #pragma once
-using namespace std;
 
 class User
 {
@@ -7,14 +6,14 @@ private:
     int id_user;
     char fullName[100];
     char email[100];
-    char password[8];
-    char number[12];
+    unsigned long password;
+    char number[15];
     char address[150];
 
 public:
     User();
     User(int id_user, const char *fullName, const char *email,
-         const char *password, const char *number,
+         unsigned long password, const char *number,
          const char *address);
 
     int getId() const;
@@ -23,4 +22,7 @@ public:
 
     void setFullName(const char *name);
     void setEmail(const char *email);
+
+    void setPassword(unsigned long password);
+    bool checkPassword(unsigned long password) const;
 };

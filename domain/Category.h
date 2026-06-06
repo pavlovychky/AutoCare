@@ -1,5 +1,4 @@
 #pragma once
-using namespace std;
 
 class Category
 {
@@ -16,5 +15,6 @@ public:
     const char *getAbout() const;
 
     void setName(const char *name);
-    void setAbout(const char *about)
+    void setAbout(const char *about);
+    int getId() const;
 };

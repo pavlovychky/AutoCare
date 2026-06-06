@@ -1,6 +1,4 @@
 #pragma once
-using namespace std;
-
 #include "Product.h"
 
 class Order
@@ -8,7 +6,7 @@ class Order
 private:
     int id_order;
     int userId;
-    int orderDate[20];
+    char orderDate[20];
     char delivery[150];
     Product products[50];
     int productCount;
@@ -24,4 +22,4 @@ public:
     double getTotal() const;
 
     void addProduct(const Product &product);
-};
+}
