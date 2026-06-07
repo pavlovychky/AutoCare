@@ -32,3 +32,13 @@ void Category::setName(const char *name)
 void Category::setAbout(const char *about){
     strcpy_s(this->about, sizeof(this->about), about);
 }
+
+int Category::getId() const
+{
+    return id;
+}
+
+void Category::setId(int id)
+{
+    this->id = id;
+}

@@ -52,3 +52,13 @@ void Product::setCount(int count)
 {
     this->count = count;
 }
+
+int Product::getId() const
+{
+    return id_prod;
+}
+
+void Product::setId(int id)
+{
+    this->id_prod = id;
+}

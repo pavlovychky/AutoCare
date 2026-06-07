@@ -54,7 +54,17 @@ void User::setPassword(const char *password)
     this->password = utils::Hash(password);
 }
 
-bool Person::CheckPassword(const char *password) const
+bool User::CheckPassword(const char *password) const
 {
     return this->password == utils::Hash(password);
+}
+
+int User::getId() const
+{
+    return id_user;
+}
+
+void User::setId(int id)
+{
+    this->id_user = id;
 }

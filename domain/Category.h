@@ -13,8 +13,9 @@ public:
 
     const char *getName() const;
     const char *getAbout() const;
+    int getId() const;
 
     void setName(const char *name);
     void setAbout(const char *about);
-    int getId() const;
+    void setId(int id);
 };

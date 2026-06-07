@@ -20,6 +20,9 @@ public:
 
     int getId() const;
     double getTotal() const;
+    int getId() const;
+
+    void setId(int id);
 
     void addProduct(const Product &product);
 }

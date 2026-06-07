@@ -26,7 +26,9 @@ public:
     double getPrice() const;
     int getCount() const;
     Category getCategory() const;
+    int getId() const;
 
+    void setId(int id);
     void setPrice(double price);
     void setCount(int count);
 };

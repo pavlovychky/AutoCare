@@ -19,7 +19,9 @@ public:
     int getId() const;
     const char *getFullName() const;
     const char *getEmail() const;
+    int getId() const;
 
+    void setId(int id);
     void setFullName(const char *name);
     void setEmail(const char *email);
 

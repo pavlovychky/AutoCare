@@ -43,3 +43,13 @@ void Order::addProduct(const Product &product)
         productCount++;
     }
 }
+
+int Order::getId() const
+{
+    return id_order;
+}
+
+void Order::setId(int id)
+{
+    this->id_order = id;
+}
