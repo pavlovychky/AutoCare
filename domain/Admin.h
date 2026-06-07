@@ -9,8 +9,11 @@ private:
 
 public:
     Admin();
-    Admin(const char *username, unsigned long password);
+    Admin(const char *username, const char *password);
 
     const char *getUsername() const;
     unsigned long getPassword() const;
+
+    void setUsername(const char *username);
+    void setPassword(const char *password);
 };
