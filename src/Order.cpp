@@ -1,4 +1,5 @@
 #include "../domain/Order.h"
+#include "../include/Utils.h"
 
 Order::Order()
 {
@@ -18,9 +19,9 @@ Order::Order(int id_order, int userId, const char *orderDate, const char *delive
     this->userId = userId;
     this->total = totalAmount;
 
-    strcpy_s(this->orderDate, sizeof(this->orderDate), orderDate);
-    strcpy_s(this->delivery, sizeof(this->delivery), deliveryAddress);
-    strcpy_s(this->status, sizeof(this->status), status);
+    utils::CopyString(this->orderDate, orderDate, sizeof(this->orderDate));
+    utils::CopyString(this->delivery, deliveryAddress, sizeof(this->delivery));
+    utils::CopyString(this->status, status, sizeof(this->status));
 
     this->productCount = 0;
 }
@@ -42,11 +43,6 @@ void Order::addProduct(const Product &product)
         products[productCount] = product;
         productCount++;
     }
-}
-
-int Order::getId() const
-{
-    return id_order;
 }
 
 void Order::setId(int id)

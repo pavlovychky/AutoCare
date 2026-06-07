@@ -1,5 +1,5 @@
-#include <iostream>
 #include "../domain/Product.h"
+#include "../include/Utils.h"
 
 Product::Product()
 {
@@ -15,17 +15,23 @@ Product::Product()
     unit[0] = '\0';
 }
 
-Product::Product(int id_prod, const char *name, const char *mark, const char *character, const char *article, const char *brand, double price, const char *unit, int count)
+Product::Product(int id_prod, const char *name, const Category &category, const char *mark, const char *character, const char *article, const char *brand, double price, const char *unit, int count)
 {
     this->id_prod = id_prod;
+    this->category = category;
     this->price = price;
     this->count = count;
-    strcpy_s(this->name, sizeof(this->name), name);
-    strcpy_s(this->mark, sizeof(this->mark), mark);
-    strcpy_s(this->character, sizeof(this->character), character);
-    strcpy_s(this->article, sizeof(this->article), article);
-    strcpy_s(this->brand, sizeof(this->brand), brand);
-    strcpy_s(this->unit, sizeof(this->unit), unit);
+    utils::CopyString(this->name, name, sizeof(this->name));
+    utils::CopyString(this->mark, mark, sizeof(this->mark));
+    utils::CopyString(this->character, character, sizeof(this->character));
+    utils::CopyString(this->article, article, sizeof(this->article));
+    utils::CopyString(this->brand, brand, sizeof(this->brand));
+    utils::CopyString(this->unit, unit, sizeof(this->unit));
+}
+
+int Product::getId() const
+{
+    return id_prod;
 }
 
 int Product::getId_prod() const
@@ -38,9 +44,44 @@ const char *Product::getName() const
     return name;
 }
 
+const char *Product::getCharacter() const
+{
+    return character;
+}
+
+const char *Product::getMark() const
+{
+    return mark;
+}
+
+const char *Product::getArticle() const
+{
+    return article;
+}
+
+const char *Product::getBrand() const
+{
+    return brand;
+}
+
+const char *Product::getUnit() const
+{
+    return unit;
+}
+
 double Product::getPrice() const
 {
     return price;
+}
+
+int Product::getCount() const
+{
+    return count;
+}
+
+Category Product::getCategory() const
+{
+    return category;
 }
 
 void Product::setPrice(double price)
@@ -51,11 +92,6 @@ void Product::setPrice(double price)
 void Product::setCount(int count)
 {
     this->count = count;
-}
-
-int Product::getId() const
-{
-    return id_prod;
 }
 
 void Product::setId(int id)

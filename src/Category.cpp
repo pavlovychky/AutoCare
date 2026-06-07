@@ -1,4 +1,6 @@
 #include "../domain/Category.h"
+#include "../include/Utils.h"
+#include <cstring>
 
 Category::Category()
 {
@@ -10,8 +12,8 @@ Category::Category()
 
 Category::Category(const char *name, const char *about)
 {
-    strcpy_s(this->name, sizeof(this->name), name);
-    strcpy_s(this->about, sizeof(this->about), about);
+    utils::CopyString(this->name, name, sizeof(this->name));
+    utils::CopyString(this->about, about, sizeof(this->about));
 }
 
 const char *Category::getName() const
@@ -26,11 +28,11 @@ const char *Category::getAbout() const
 
 void Category::setName(const char *name)
 {
-    strcpy_s(this->name, sizeof(this->name), name);
+    utils::CopyString(this->name, name, sizeof(this->name));
 }
 
 void Category::setAbout(const char *about){
-    strcpy_s(this->about, sizeof(this->about), about);
+    utils::CopyString(this->about, about, sizeof(this->about));
 }
 
 int Category::getId() const
