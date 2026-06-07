@@ -1,10 +1,20 @@
+#pragma once
+
 #include "../domain/User.h"
 
-class UserStorage {
+class UserStorage
+{
+private:
+    const char *FILE_NAME = "users.dat";
+
 public:
-    static void addUser(const User& user);
-    static int getAllUsers(User users[], int maxCount);
-    static bool findUserById(int id_user, User& result);
-    static bool updateUser(const User& user);
-    static bool deleteUser(int id_user);
+    void add(User &user);
+
+    int getAll(User users[], int maxCount);
+
+    bool getById(int id, User &result);
+
+    bool update(const User &updatedUser);
+
+    bool deleteUser(int id);
 };
