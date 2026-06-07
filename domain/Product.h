@@ -1,5 +1,5 @@
 #pragma once
-#include "Category.h"
+#include "../domain/Category.h"
 
 class Product
 {
@@ -22,11 +22,19 @@ public:
             double price, const char *unit, int count);
 
     int getId_prod() const;
+    int getId() const;
+
     const char *getName() const;
+    const char *getMark() const;
+    const char *getCharacter() const;
+    const char *getArticle() const;
+    const char *getBrand() const;
+    const char *getUnit() const;
+
     double getPrice() const;
     int getCount() const;
+
     Category getCategory() const;
-    int getId() const;
 
     void setId(int id);
     void setPrice(double price);

@@ -13,18 +13,17 @@ private:
 public:
     User();
     User(int id_user, const char *fullName, const char *email,
-         unsigned long password, const char *number,
+         const char *password, const char *number,
          const char *address);
 
     int getId() const;
     const char *getFullName() const;
     const char *getEmail() const;
-    int getId() const;
 
     void setId(int id);
     void setFullName(const char *name);
     void setEmail(const char *email);
 
-    void setPassword(unsigned long password);
-    bool checkPassword(unsigned long password) const;
+    void setPassword(const char *password);
+    bool checkPassword(const char *password) const;
 };
