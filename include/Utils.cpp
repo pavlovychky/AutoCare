@@ -1,4 +1,5 @@
 #include "../include/Utils.h"
+#include <cstring>
 
 namespace utils
 {
@@ -12,5 +13,18 @@ namespace utils
         }
 
         return hash;
+    }
+
+    void CopyString(char *dest, const char *src, size_t size)
+    {
+        if (src)
+        {
+            strncpy(dest, src, size - 1);
+            dest[size - 1] = '\0';
+        }
+        else
+        {
+            dest[0] = '\0';
+        }
     }
 }
