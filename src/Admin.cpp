@@ -1,16 +1,19 @@
 #include "../domain/Admin.h"
 #include "../include/Utils.h"
-#include <cstring>
 
 Admin::Admin()
 {
     username[0] = '\0';
-    password[0] = '\0';
+    password = 0;
 }
 
 Admin::Admin(const char *username, const char *password)
 {
-    strcpy(this->username, sizeof(this->username), username);
+    utils::CopyString(
+        this->username,
+        username,
+        sizeof(this->username));
+
     this->password = utils::Hash(password);
 }
 
@@ -19,14 +22,17 @@ const char *Admin::getUsername() const
     return username;
 }
 
-const char *Admin::getPassword() const
+unsigned long Admin::getPassword() const
 {
     return password;
 }
 
 void Admin::setUsername(const char *username)
 {
-    strcpy(this->username, sizeof(this->username), username);
+    utils::CopyString(
+        this->username,
+        username,
+        sizeof(this->username));
 }
 
 void Admin::setPassword(const char *password)
