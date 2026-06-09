@@ -1,7 +1,7 @@
 #include "../storage/header/AdminStorage.h"
 #include <cstdio>
 
-bool AdminStorage::Save(const Admin& admin)
+bool AdminStorage::save(const Admin &admin)
 {
     FILE* file = fopen(FILE_NAME, "wb");
 
@@ -15,7 +15,7 @@ bool AdminStorage::Save(const Admin& admin)
     return true;
 }
 
-bool AdminStorage::Get(Admin& admin)
+bool AdminStorage::get(Admin &admin)
 {
     FILE* file = fopen(FILE_NAME, "rb");
 
@@ -30,7 +30,7 @@ bool AdminStorage::Get(Admin& admin)
     return success;
 }
 
-bool AdminStorage::Update(const Admin& admin)
+bool AdminStorage::update(const Admin &admin)
 {
-    return Save(admin);
+    return save(admin);
 }
