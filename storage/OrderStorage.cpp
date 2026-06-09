@@ -1,88 +1,125 @@
-#include "OrderStorage.h"
+#include "../storage/header/OrderStorage.h"
+#include "../include/IDGenerator.h"
+
 #include <cstdio>
 
-void ProductStorage::addProduct(const Product &product)
+void OrderStorage::add(Order &order)
 {
-        FILE* file = fopen(PRODUCT_FILE, "ab");
-    if (file == NULL) return;
+    int id = IDGenerator::GetNextId("orders.id");
 
-    fwrite(&product, sizeof(Product), 1, file);
+    order.setId(id);
+
+    FILE *file = fopen(FILE_NAME, "ab");
+
+    if (file == NULL)
+        return;
+
+    fwrite(&order, sizeof(Order), 1, file);
+
     fclose(file);
 }
 
-int ProductStorage::getAllProducts(Product products[], int maxCount)
+int OrderStorage::getAll(Order orders[], int maxCount)
 {
-     FILE* file = fopen(PRODUCT_FILE, "rb");
-    if (file == NULL) return 0;
+    FILE *file = fopen(FILE_NAME, "rb");
+
+    if (file == NULL)
+        return 0;
 
     int count = 0;
 
-    while (count < maxCount &&
-           fread(&products[count], sizeof(Product), 1, file) == 1) {
+    while (
+        count < maxCount &&
+        fread(&orders[count], sizeof(Order), 1, file) == 1)
+    {
         count++;
     }
 
     fclose(file);
+
     return count;
 }
 
-bool ProductStorage::findProductById(int id, Product &result)
+bool OrderStorage::getById(int id, Order &result)
 {
-    FILE* file = fopen(PRODUCT_FILE, "rb");
-    if (file == NULL) return false;
+    FILE *file = fopen(FILE_NAME, "rb");
 
-    Product temp;
+    if (file == NULL)
+        return false;
 
-    while (fread(&temp, sizeof(Product), 1, file) == 1) {
-        if (temp.id == id) {
+    Order temp;
+
+    while (fread(&temp, sizeof(Order), 1, file) == 1)
+    {
+        if (temp.getId() == id)
+        {
             result = temp;
+
             fclose(file);
+
             return true;
         }
     }
 
     fclose(file);
+
     return false;
 }
 
-bool ProductStorage::updateProduct(const Product &updatedProduct)
+bool OrderStorage::update(const Order &updatedOrder)
 {
-    FILE* file = fopen(PRODUCT_FILE, "rb+");
-    if (file == NULL) return false;
+    FILE *file = fopen(FILE_NAME, "rb+");
 
-    Product temp;
+    if (file == NULL)
+        return false;
 
-    while (fread(&temp, sizeof(Product), 1, file) == 1) {
-        if (temp.id == updatedProduct.id) {
-            fseek(file, -sizeof(Product), SEEK_CUR);
-            fwrite(&updatedProduct, sizeof(Product), 1, file);
+    Order temp;
+
+    while (fread(&temp, sizeof(Order), 1, file) == 1)
+    {
+        if (temp.getId() == updatedOrder.getId())
+        {
+            fseek(file, -static_cast<long>(sizeof(Order)), SEEK_CUR);
+
+            fwrite(&updatedOrder, sizeof(Order), 1, file);
+
             fclose(file);
+
             return true;
         }
     }
 
     fclose(file);
+
     return false;
 }
 
-bool ProductStorage::deleteProduct(int id_prod)
+bool OrderStorage::deleteOrder(int id)
 {
-    FILE* file = fopen(PRODUCT_FILE, "rb");
-    if (file == NULL) return false;
+    FILE *file = fopen(FILE_NAME, "rb");
 
-    FILE* tempFile = fopen("data/temp.dat", "wb");
-    if (tempFile == NULL) {
+    if (file == NULL)
+        return false;
+
+    FILE *tempFile = fopen("temp.dat", "wb");
+
+    if (tempFile == NULL)
+    {
         fclose(file);
         return false;
     }
 
-    Product temp;
+    Order temp;
     bool deleted = false;
 
-    while (fread(&temp, sizeof(Product), 1, file) == 1) {
-        if (temp.id != id_prod) {
-            fwrite(&temp, sizeof(Product), 1, tempFile);
-        } else {
+    while (fread(&temp, sizeof(Order), 1, file) == 1)
+    {
+        if (temp.getId() != id)
+        {
+            fwrite(&temp, sizeof(Order), 1, tempFile);
+        }
+        else
+        {
             deleted = true;
         }
     }
@@ -90,8 +127,8 @@ bool ProductStorage::deleteProduct(int id_prod)
     fclose(file);
     fclose(tempFile);
 
-    remove(PRODUCT_FILE);
-    rename("data/temp.dat", PRODUCT_FILE);
+    remove(FILE_NAME);
+    rename("temp.dat", FILE_NAME);
 
     return deleted;
-}
+};

@@ -1,11 +1,20 @@
 #pragma once
-#include "../domain/Product.h"
 
-class ProductStorage {
+#include "../../domain/Order.h"
+
+class OrderStorage
+{
+private:
+    const char *FILE_NAME = "orders.dat";
+
 public:
-    static void addProduct(const Product& product);
-    static int getAllProducts(Product products[], int maxCount);
-    static bool findProductById(int id, Product& result);
-    static bool updateProduct(const Product& updatedProduct);
-    static bool deleteProduct(int id);
+    void add(Order &order);
+
+    int getAll(Order orders[], int maxCount);
+
+    bool getById(int id, Order &result);
+
+    bool update(const Order &updatedOrder);
+
+    bool deleteOrder(int id);
 };
