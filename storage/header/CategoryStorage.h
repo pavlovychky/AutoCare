@@ -1,12 +1,20 @@
 #pragma once
-#include "../domain/Category.h"
+
+#include "../../domain/Category.h"
 
 class CategoryStorage
 {
+private:
+    const char *FILE_NAME = "categories.dat";
+
 public:
-    static void addCategory(const Category &category);
-    static int getAllCategories(Category categories[], int maxCount);
-    static bool findCategoryById(int id, Category &result);
-    static bool updateCategory(const Category &updatedCategory);
-    static bool deleteCategory(int id);
-}
+    void add(Category &category);
+
+    int getAll(Category categories[], int maxCount);
+
+    bool getById(int id, Category &result);
+
+    bool update(const Category &updatedCategory);
+
+    bool deleteCategory(int id);
+};
