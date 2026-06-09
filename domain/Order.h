@@ -24,4 +24,4 @@ public:
     void setId(int id);
 
     void addProduct(const Product &product);
-}
+};
