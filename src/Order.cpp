@@ -49,3 +49,26 @@ void Order::setId(int id)
 {
     this->id_order = id;
 }
+
+int Order::getUserId() const
+{
+    return userId;
+}
+void Order::setUserId(int userId)
+{
+    this->userId = userId;
+}
+void Order::setTotal(double total)
+{
+    this->total = total;
+}
+
+const char *Order::getOrderDate() const
+{
+    return orderDate;
+}
+
+void Order::setOrderDate(const char *date)
+{
+    utils::CopyString(orderDate, date, sizeof(orderDate));
+}

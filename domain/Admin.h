@@ -15,4 +15,6 @@ public:
 
     void setUsername(const char *username);
     void setPassword(const char *password);
+
+    bool checkPassword(const char *password) const;
 };

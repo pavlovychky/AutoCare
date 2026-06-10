@@ -24,4 +24,11 @@ public:
     void setId(int id);
 
     void addProduct(const Product &product);
+    void setTotal(double total);
+
+    int getUserId() const;
+    void setUserId(int userId);
+
+    const char *getOrderDate() const;
+    void setOrderDate(const char *date);
 };

@@ -39,3 +39,8 @@ void Admin::setPassword(const char *password)
 {
     this->password = utils::Hash(password);
 }
+
+bool Admin::checkPassword(const char *password) const
+{
+    return this->password == utils::Hash(password);
+}

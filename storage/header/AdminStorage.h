@@ -13,4 +13,6 @@ public:
     bool get(Admin &admin);
 
     bool update(const Admin &admin);
+
+    int getAll(Admin admins[], int maxCount);
 };

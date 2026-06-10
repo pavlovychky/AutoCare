@@ -14,7 +14,7 @@ public:
 
     bool getById(int id, Order &result);
 
-    bool update(const Order &updatedOrder);
+    bool update(Order &updatedOrder);
 
     bool deleteOrder(int id);
 };

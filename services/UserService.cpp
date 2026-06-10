@@ -1,31 +1,39 @@
-#include "UserService.h"
-#include "../include/Utils.h"
+#include "../services/UserService.h"
 
-void UserService::registerUser(const char *fullName,
-                               const char *email,
-                               const char *password,
-                               const char *number,
-                               const char *address)
+void UserService::createUser(
+    const char *fullName,
+    const char *email,
+    const char *password,
+    const char *number,
+    const char *address)
 {
-    User user(fullName, email, password, number, address);
+    User user(
+        0,
+        fullName,
+        email,
+        password,
+        number,
+        address);
+
     storage.add(user);
 }
 
-bool UserService::login(const char *email, const char *password)
+bool UserService::getUserById(int id, User &user)
 {
-    User users[100];
-    int count = storage.getAll(users, 100);
+    return storage.getById(id, user);
+}
 
-    unsigned long hash = utils::Hash(password);
+int UserService::getAllUsers(User users[], int maxCount)
+{
+    return storage.getAll(users, maxCount);
+}
 
-    for (int i = 0; i < count; i++)
-    {
-        if (strcmp(users[i].getEmail(), email) == 0 &&
-            users[i].checkPassword(password))
-        {
-            return true;
-        }
-    }
+bool UserService::updateUser(const User &user)
+{
+    return storage.update(user);
+}
 
-    return false;
+bool UserService::deleteUser(int id)
+{
+    return storage.deleteUser(id);
 }

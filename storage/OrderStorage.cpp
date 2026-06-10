@@ -66,7 +66,7 @@ bool OrderStorage::getById(int id, Order &result)
     return false;
 }
 
-bool OrderStorage::update(const Order &updatedOrder)
+bool OrderStorage::update(Order &updatedOrder)
 {
     FILE *file = fopen(FILE_NAME, "rb+");
 

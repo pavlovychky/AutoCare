@@ -34,3 +34,21 @@ bool AdminStorage::update(const Admin &admin)
 {
     return save(admin);
 }
+
+int AdminStorage::getAll(Admin admins[], int maxCount)
+{
+    FILE *file = fopen(FILE_NAME, "rb");
+
+    if (file == NULL)
+        return 0;
+
+    int count = 0;
+    while (count < maxCount && fread(&admins[count], sizeof(Admin), 1, file) == 1)
+    {
+        count++;
+    }
+
+    fclose(file);
+
+    return count;
+}
