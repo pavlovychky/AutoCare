@@ -1,0 +1,3 @@
+C:/Users/Asus/Documents/GitHub/AutoCare/build/CMakeFiles/AutoCare.dir
+C:/Users/Asus/Documents/GitHub/AutoCare/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Asus/Documents/GitHub/AutoCare/build/CMakeFiles/ZERO_CHECK.dir

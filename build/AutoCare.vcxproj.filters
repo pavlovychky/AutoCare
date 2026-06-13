@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\app\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\common\Utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\domain\User.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\domain\Category.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\domain\Product.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\domain\Cart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\domain\Order.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\storage\UserStorage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\storage\CategoryStorage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\storage\ProductStorage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\storage\CartStorage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\storage\OrderStorage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\services\AuthService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\services\ProductService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\services\CartService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\services\OrderService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\controllers\AuthController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\controllers\ProductController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\controllers\CartController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\controllers\OrderController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\controllers\UserController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Asus\Documents\GitHub\AutoCare\Backend\controllers\CategoryController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Asus\Documents\GitHub\AutoCare\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F256F34B-C23C-3C18-8184-9CC413442234}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
